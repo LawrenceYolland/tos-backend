@@ -53,3 +53,5 @@ gem "jwt", "~> 2.2"
 gem 'pry'
 
 gem 'faker'
+
+gem 'figaro'

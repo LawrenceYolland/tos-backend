@@ -7,12 +7,12 @@ class ApplicationController < ActionController::API
 
   def encode_token(payload)
     #   use => ENV['RAILS_SECRET'])
-      JWT.encode(payload, 'my_s3cr3t')
+      JWT.encode(payload, ENV['JWT_SECRET'])
   end
 
   def decode_token(token)
     #   use => ENV['RAILS_SECRET'])
-    JWT.decode(get_token, 'my_s3cr3t')
+    JWT.decode(get_token, ENV['JWT_SECRET'])
   end
 
   def set_current_user
