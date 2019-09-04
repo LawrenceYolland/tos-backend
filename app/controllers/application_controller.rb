@@ -6,12 +6,10 @@ class ApplicationController < ActionController::API
   end
 
   def encode_token(payload)
-    #   use => ENV['RAILS_SECRET'])
       JWT.encode(payload, ENV['JWT_SECRET'])
   end
 
   def decode_token(token)
-    #   use => ENV['RAILS_SECRET'])
     JWT.decode(get_token, ENV['JWT_SECRET'])
   end
 
