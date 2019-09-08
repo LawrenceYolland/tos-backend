@@ -6,11 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# create test user
 User.create!([
-    { username: "lawrence", password: "123", usertype: true, bio: Faker::Movies::Ghostbusters.quote },
-    { username: "peer", password: "123", usertype: false, bio: Faker::Movies::Ghostbusters.quote },
-    ])
-
+    { 
+    username: "lawrence",
+    password: "123",
+    usertype: true,
+    bio: Faker::Movies::Ghostbusters.quote 
+    }
+])
 
 10.times do 
     Paper.create({
@@ -25,7 +29,47 @@ end
 5.times do 
     Review.create({
         content: Faker::Hipster.paragraph(sentence_count: 2),
-        paper_id: 1,
+        paper_id: rand(10)+1,
         user_id: 1
+    })
+end 
+
+# create bank of researcher type users
+10.times do 
+    User.create({
+        username: Faker::Name.name,
+        password: "123",
+        usertype: true,
+        bio: Faker::Movies::Ghostbusters.quote
+    })
+end
+
+# assign researchers some papers
+20.times do 
+    Paper.create({
+        title: Faker::Hipster.sentence,
+        abstract: Faker::Hipster.paragraph(sentence_count: 3),
+        category: ["Biology", "Physics", "Chemistry"][rand(3)],
+        doi: "10.1016/j.cell.2015.02.015",
+        user_id: rand(10)+1
+    })
+end 
+
+# create some peers
+10.times do 
+    User.create({
+        username: Faker::Name.name,
+        password: "123",
+        usertype: false,
+        bio: Faker::Movies::Ghostbusters.quote
+    })
+end
+
+# randomly assign users some reviews
+30.times do 
+    Review.create({
+        content: Faker::Hipster.paragraph(sentence_count: 2),
+        paper_id: rand(20)+1,
+        user_id: rand(20)+1
     })
 end 
