@@ -45,16 +45,16 @@
 # end
 
 # assign researchers some papers
-5.times do 
-    Paper.create({
-        title: Faker::Hipster.sentence,
-        abstract: Faker::Hipster.paragraph(sentence_count: 3),
-        category: ["Biology", "Physics", "Chemistry"][rand(3)],
-        doi: "10.1016/j.cell.2015.02.015",
-        user_id: rand(8)+2,
-        rating: rand(5)
-    })
-end 
+# 5.times do 
+#     Paper.create({
+#         title: Faker::Hipster.sentence,
+#         abstract: Faker::Hipster.paragraph(sentence_count: 3),
+#         category: ["Biology", "Physics", "Chemistry"][rand(3)],
+#         doi: "10.1016/j.cell.2015.02.015",
+#         user_id: rand(8)+2,
+#         rating: rand(5)
+#     })
+# end 
 
 # create some peers
 # 10.times do 
@@ -67,10 +67,10 @@ end
 # end
 
 # randomly assign users some reviews
-20.times do 
-    Review.create({
-        content: Faker::Hipster.paragraph(sentence_count: 2),
-        paper_id: rand(18)+2,
-        user_id: rand(18)+2
-    })
-end 
+# 20.times do 
+#     Review.create({
+#         content: Faker::Hipster.paragraph(sentence_count: 2),
+#         paper_id: rand(18)+2,
+#         user_id: rand(18)+2
+#     })
+# end 
